@@ -1,0 +1,11 @@
+# 线上 API 服务依赖（部署到自有服务器）
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.0.0
+gunicorn>=21.2.0          # 生产多进程（配合 uvicorn worker）
+
+# 可选：仅当 GEN_BACKEND=anthropic 时
+# anthropic>=0.39.0
+
+# 说明：核心智能体（../src）仅用 Python 标准库（urllib/json 等）实现 LLM/嵌入调用与检索，
+# 故除 Web 框架外无重型依赖（无 numpy/faiss/torch），便于在隔离环境快速部署。

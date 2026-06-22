@@ -1,0 +1,20 @@
+# 密钥（务必排除）
+.env
+*.key
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 知识库数据 / 产物（不随仓库分发）
+knowledge_base/*
+!knowledge_base/README.md
+result/
+cache/
+*.log
+
+# 临时/历史
+tmp/
+old/

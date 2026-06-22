@@ -1,0 +1,14 @@
+# 知册多模态客服智能体 — 依赖清单
+# 核心库 g1_pipeline / g1_api / g1_qwen_judge 仅用 Python 标准库(urllib/json/...)，无需第三方包即可批跑与离线评测。
+# 以下仅为「以 RESTful API 服务方式运行」所需：
+
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.0.0
+
+# 可选：仅当 GEN_BACKEND=anthropic（用 Anthropic SDK 作生成后端）时需要。
+# 默认 GEN_BACKEND=deepseek 走 OpenAI 兼容网关(urllib)，无需此包。
+# anthropic>=0.39.0
+
+# 说明：检索用的向量相似度(cosine)与词面 TF-IDF 均为纯 Python 手写实现，不依赖 numpy/faiss/sklearn。
+# Python 版本要求：3.10+（g1_api_server.py 用到 `str | None` 语法）。
